@@ -25,7 +25,7 @@ const diagrams: Diagram[] = [
         title: 'YuppTV OTT Platform Modernization Process Flow',
         description: 'Authentication and authorization flow diagram showing the secure user login process and token-based validation system.',
         image: 'https://i.postimg.cc/rpjhfz2V/aiplugin-94ea7b51-649f-41ca-bd26-80a8b97c4c1e.png',
-        pdfPath: '/src/pdf/YuppTv.pdf',
+        pdfPath: '/pdf/YuppTv.pdf',
     }
 ];
 

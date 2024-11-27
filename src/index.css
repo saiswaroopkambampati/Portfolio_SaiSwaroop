@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#1a1a1a] text-white;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl font-bold mb-6;
+    }
+
+    .section-description {
+        @apply text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-12 md:mb-16;
+    }
+
+    .section-padding {
+        @apply py-16 md:py-24 lg:py-32;
+    }
+
+    .card {
+        @apply bg-[#2A2A2A] rounded-xl p-6 md:p-8 shadow-2xl border border-gray-700;
+    }
+
+    .card-hover {
+        @apply hover:border-blue-500/30 transition-all duration-300;
+    }
+
+    .button-primary {
+        @apply inline-flex items-center gap-2 bg-[#4169E1] text-white px-5 md:px-6 py-3 rounded-lg hover:bg-[#5E85FF] transition-all text-sm md:text-base;
+    }
+
+    .button-secondary {
+        @apply inline-flex items-center gap-2 bg-transparent border border-gray-600 text-white px-5 md:px-6 py-3 rounded-lg hover:bg-gray-800 transition-all text-sm md:text-base;
+    }
+
+    .nav-link {
+        @apply text-gray-300 hover:text-white transition-colors duration-300;
+    }
+
+    .social-link {
+        @apply text-gray-400 hover:text-white transition-colors duration-300;
+    }
+
+    .content-grid {
+        @apply grid gap-6 md:gap-8 lg:gap-12;
+    }
+}
+
+/* Animations */
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.animate-shine {
+    animation: shine 2s infinite;
+}
+
+/* Skill bar animation */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.skill-bar.animate {
+    animation: fillBar 1s ease-out forwards;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    .section-title {
+        @apply text-2xl;
+    }
+
+    .section-description {
+        @apply text-base;
+    }
+}

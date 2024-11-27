@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        text { fill: #ffffff; font-family: Arial, sans-serif; }
+        .box { fill: none; stroke: #4169E1; stroke-width: 2; }
+        .arrow { stroke: #4169E1; stroke-width: 2; marker-end: url(#arrowhead); }
+        .start { fill: #ff9999; }
+        .process { fill: #99ff99; }
+        .validation { fill: #9999ff; }
+        .error { fill: #ff9999; }
+        .success { fill: #99ff99; }
+        .monitor { fill: #cccccc; }
+    </style>
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#4169E1"/>
+        </marker>
+    </defs>
+    <g transform="translate(50,50)">
+        <!-- Your flow diagram content -->
+        <rect x="250" y="10" width="200" height="40" rx="5" class="start"/>
+        <text x="270" y="35">Start: User opens the YuppTV app and logs in</text>
+
+        <rect x="200" y="90" width="300" height="40" rx="5" class="process"/>
+        <text x="220" y="115">Data Transmission: Credentials are securely sent to the back-end</text>
+
+        <rect x="300" y="170" width="100" height="40" rx="5" class="validation"/>
+        <text x="320" y="195">Validation</text>
+
+        <!-- Add more elements based on your flow diagram -->
+    </g>
+</svg>

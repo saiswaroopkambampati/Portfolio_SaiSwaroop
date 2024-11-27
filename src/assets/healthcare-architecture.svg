@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        text { fill: #ffffff; font-family: Arial, sans-serif; }
+        .box { fill: #2a2a2a; stroke: #4169E1; stroke-width: 2; }
+        .arrow { stroke: #4169E1; stroke-width: 2; marker-end: url(#arrowhead); }
+        .icon { fill: #4169E1; }
+    </style>
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#4169E1"/>
+        </marker>
+    </defs>
+    <g transform="translate(50,50)">
+        <!-- Frontend Layer -->
+        <rect x="50" y="50" width="150" height="100" rx="5" class="box"/>
+        <text x="75" y="85">Frontend Layer</text>
+        <text x="75" y="115">Angular</text>
+        <text x="75" y="135">Application</text>
+
+        <!-- Backend Layer -->
+        <rect x="300" y="50" width="150" height="100" rx="5" class="box"/>
+        <text x="325" y="85">Backend Layer</text>
+        <text x="325" y="115">ASP.NET Core</text>
+        <text x="325" y="135">Microservices</text>
+
+        <!-- Database Layer -->
+        <rect x="550" y="50" width="150" height="100" rx="5" class="box"/>
+        <text x="575" y="85">Database Layer</text>
+        <text x="575" y="115">SQL Server</text>
+        <text x="575" y="135">Entity Framework</text>
+
+        <!-- Cloud Integration -->
+        <rect x="300" y="250" width="150" height="100" rx="5" class="box"/>
+        <text x="325" y="285">Cloud Integration</text>
+        <text x="325" y="315">Azure Functions</text>
+        <text x="325" y="335">Azure Monitor</text>
+
+        <!-- Arrows -->
+        <path d="M200,100 H300" class="arrow"/>
+        <path d="M450,100 H550" class="arrow"/>
+        <path d="M375,150 V250" class="arrow"/>
+    </g>
+</svg>

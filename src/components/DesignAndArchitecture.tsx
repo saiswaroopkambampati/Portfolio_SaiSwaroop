@@ -19,7 +19,7 @@ const diagrams: Diagram[] = [
         title: 'Healthcare Management System Architecture',
         description: 'System architecture diagram illustrating the microservices-based design with Angular frontend and .NET Core backend.',
         image: 'https://i.postimg.cc/fyhSnr5K/download.png',
-        pdfPath: '/src/pdf/Healthcare-Management.pdf',
+        pdfPath: '/pdf/Healthcare-Management.pdf',
     },
     {
         title: 'YuppTV OTT Platform Modernization Process Flow',

@@ -25,6 +25,10 @@
         @apply py-16 md:py-24 lg:py-32;
     }
 
+    .section-padding1 {
+        @apply pb-16 md:pb-24 lg:pb-32;
+    }
+
     .card {
         @apply bg-[#2A2A2A] rounded-xl p-6 md:p-8 shadow-2xl border border-gray-700;
     }
@@ -48,9 +52,65 @@
     .social-link {
         @apply text-gray-400 hover:text-white transition-colors duration-300;
     }
+}
 
-    .content-grid {
-        @apply grid gap-6 md:gap-8 lg:gap-12;
+/* Mobile-S (320px) */
+@media screen and (max-width: 320px) {
+    .hero-title {
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-description {
+        font-size: 0.8125rem !important;
+        line-height: 1.4 !important;
+        max-width: 260px !important;
+    }
+}
+
+/* Mobile-M (375px) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .hero-title {
+        font-size: 1.375rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-description {
+        font-size: 0.875rem !important;
+        line-height: 1.45 !important;
+        max-width: 300px !important;
+    }
+}
+
+/* Mobile-L (425px) */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .hero-title {
+        font-size: 1.5rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-description {
+        font-size: 0.9375rem !important;
+        line-height: 1.5 !important;
+        max-width: 340px !important;
+    }
+}
+
+/* Tablet (768px) */
+@media screen and (min-width: 768px) {
+    .hero-title {
+        font-size: 2.75rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    .hero-description {
+        font-size: 1.125rem !important;
+        line-height: 1.6 !important;
+        max-width: 500px !important;
     }
 }
 

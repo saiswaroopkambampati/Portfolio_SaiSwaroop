@@ -3,7 +3,7 @@ import { Code2, Database, Cloud, Users, Brain, Coffee } from 'lucide-react';
 
 export default function About() {
     return (
-        <section id="about" className="section-padding">
+        <section id="about" className="section-padding1">
             <div className="container">
                 <div className="text-center">
                     <h2 className="section-title">About Me</h2>

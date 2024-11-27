@@ -6,9 +6,12 @@ export default {
     ],
     theme: {
         extend: {
-            container: {
-                center: true,
-                padding: '1rem',
+            screens: {
+                'xs': '375px',
+                'mobile-s': '320px',
+                'mobile-m': '375px',
+                'mobile-l': '425px',
+                'tablet': '768px',
             },
         },
     },

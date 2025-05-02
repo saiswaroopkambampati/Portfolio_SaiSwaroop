@@ -1,0 +1,16 @@
+{
+    "name": "Santosh Reddy - Senior Full-Stack Developer",
+    "short_name": "Santosh Reddy",
+    "description": "Senior Full-Stack .NET Developer with expertise in Angular, React, and Azure Cloud technologies.",
+    "icons": [
+        {
+            "src": "/portfolio-icon.svg",
+            "sizes": "32x32",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#4169E1",
+    "background_color": "#1a1a1a",
+    "display": "standalone",
+    "start_url": "/"
+}

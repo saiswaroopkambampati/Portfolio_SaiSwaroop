@@ -4,7 +4,25 @@
 
 @layer base {
     body {
-        @apply bg-[#1a1a1a] text-white;
+        @apply bg-gradient-to-br from-[#1a2744] via-[#1e1b4b] to-[#3b185f] min-h-screen text-white;
+        background-attachment: fixed;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-[#1a1a1a];
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-blue-600/50 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-blue-500;
     }
 }
 
@@ -14,7 +32,7 @@
     }
 
     .section-title {
-        @apply text-3xl md:text-4xl font-bold mb-6;
+        @apply text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
     }
 
     .section-description {
@@ -22,135 +40,100 @@
     }
 
     .section-padding {
-        @apply py-16 md:py-24 lg:py-32;
+        @apply py-20 md:py-28 lg:py-32;
     }
 
     .section-padding1 {
-        @apply pb-16 md:pb-24 lg:pb-32;
+        @apply pb-20 md:pb-28 lg:pb-32;
     }
 
     .card {
-        @apply bg-[#2A2A2A] rounded-xl p-6 md:p-8 shadow-2xl border border-gray-700;
+        @apply bg-[#1a1a1a]/60 rounded-xl p-6 md:p-8 shadow-2xl border border-gray-800/50 backdrop-blur-sm;
+        background-image: radial-gradient(circle at center,
+                rgba(59, 130, 246, 0.1) 0%,
+                rgba(26, 26, 26, 0.6) 100%);
     }
 
     .card-hover {
-        @apply hover:border-blue-500/30 transition-all duration-300;
+        @apply hover:border-blue-500/50 hover:shadow-blue-500/10 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
     }
 
     .button-primary {
-        @apply inline-flex items-center gap-2 bg-[#4169E1] text-white px-5 md:px-6 py-3 rounded-lg hover:bg-[#5E85FF] transition-all text-sm md:text-base;
+        @apply inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 md:px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all text-sm md:text-base shadow-lg hover:shadow-blue-500/20;
     }
 
     .button-secondary {
-        @apply inline-flex items-center gap-2 bg-transparent border border-gray-600 text-white px-5 md:px-6 py-3 rounded-lg hover:bg-gray-800 transition-all text-sm md:text-base;
+        @apply inline-flex items-center gap-2 bg-[#1a1a1a]/60 border border-gray-700 text-white px-5 md:px-6 py-3 rounded-lg hover:bg-[#2a2a2a]/60 hover:border-blue-500/50 transition-all text-sm md:text-base shadow-lg hover:shadow-blue-500/10;
     }
 
     .nav-link {
-        @apply text-gray-300 hover:text-white transition-colors duration-300;
+        @apply text-gray-300 hover:text-white transition-colors duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-500 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full;
     }
 
     .social-link {
-        @apply text-gray-400 hover:text-white transition-colors duration-300;
-    }
-}
-
-/* Mobile-S (320px) */
-@media screen and (max-width: 320px) {
-    .hero-title {
-        font-size: 1.25rem !important;
-        line-height: 1.2 !important;
-        letter-spacing: -0.01em !important;
+        @apply text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110 transform;
     }
 
-    .hero-description {
-        font-size: 0.8125rem !important;
-        line-height: 1.4 !important;
-        max-width: 260px !important;
-    }
-}
+    /* Skill bar animation */
+    @keyframes fillBar {
+        from {
+            width: 0;
+        }
 
-/* Mobile-M (375px) */
-@media screen and (min-width: 321px) and (max-width: 375px) {
-    .hero-title {
-        font-size: 1.375rem !important;
-        line-height: 1.25 !important;
-        letter-spacing: -0.01em !important;
+        to {
+            width: var(--target-width);
+        }
     }
 
-    .hero-description {
-        font-size: 0.875rem !important;
-        line-height: 1.45 !important;
-        max-width: 300px !important;
-    }
-}
-
-/* Mobile-L (425px) */
-@media screen and (min-width: 376px) and (max-width: 425px) {
-    .hero-title {
-        font-size: 1.5rem !important;
-        line-height: 1.25 !important;
-        letter-spacing: -0.01em !important;
+    .skill-bar {
+        animation: fillBar 1s ease-out forwards;
+        --target-width: 0%;
     }
 
-    .hero-description {
-        font-size: 0.9375rem !important;
-        line-height: 1.5 !important;
-        max-width: 340px !important;
-    }
-}
-
-/* Tablet (768px) */
-@media screen and (min-width: 768px) {
-    .hero-title {
-        font-size: 2.75rem !important;
-        line-height: 1.15 !important;
-        letter-spacing: -0.02em !important;
+    .skill-bar.animate {
+        --target-width: 100%;
     }
 
-    .hero-description {
-        font-size: 1.125rem !important;
-        line-height: 1.6 !important;
-        max-width: 500px !important;
-    }
-}
-
-/* Animations */
-@keyframes shine {
-    0% {
-        transform: translateX(-100%);
+    /* Hover Effects */
+    .hover-glow {
+        @apply transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20;
     }
 
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.animate-shine {
-    animation: shine 2s infinite;
-}
-
-/* Skill bar animation */
-@keyframes fillBar {
-    from {
-        width: 0;
+    .hover-scale {
+        @apply transition-transform duration-300 hover:scale-105;
     }
 
-    to {
-        width: 100%;
-    }
-}
-
-.skill-bar.animate {
-    animation: fillBar 1s ease-out forwards;
-}
-
-/* Responsive Typography */
-@media (max-width: 640px) {
-    .section-title {
-        @apply text-2xl;
+    /* Gradient Text */
+    .gradient-text {
+        @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
     }
 
-    .section-description {
-        @apply text-base;
+    /* Glass Effect */
+    .glass-effect {
+        @apply backdrop-blur-sm bg-opacity-90;
+    }
+
+    /* Consistent spacing */
+    .section-spacing>*+* {
+        @apply mt-8 md:mt-12;
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 640px) {
+        .section-title {
+            @apply text-2xl;
+        }
+
+        .section-description {
+            @apply text-base;
+        }
+    }
+
+    /* Background Grid */
+    .bg-grid {
+        background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-position: center center;
     }
 }

@@ -21,7 +21,6 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
         const timer = setInterval(() => {
             setProgress((prev) => {
                 const newProgress = prev + 1;
-                // Update loading text based on progress
                 const textIndex = Math.floor((newProgress / 100) * loadingSteps.length);
                 if (textIndex < loadingSteps.length) {
                     setLoadingText(loadingSteps[textIndex]);
@@ -45,20 +44,26 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
     if (!showContent) return null;
 
     return (
-        <div className="fixed inset-0 bg-[#1a1a1a] z-50 flex flex-col items-center justify-center">
-            <div className="w-full max-w-2xl px-6">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center">
+            {/* Background Elements */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1a1a1a] to-[#0f172a]"></div>
+            <div className="absolute inset-0 bg-grid opacity-20"></div>
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]"></div>
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]"></div>
+
+            <div className="relative z-10 w-full max-w-2xl px-6">
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold text-white mb-2">Loading Level</h2>
+                    <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2">Loading Level</h2>
                     <p className="text-gray-400 text-lg">{loadingText}</p>
                 </div>
 
                 {/* Loading Bar Container */}
                 <div className="relative">
-                    <div className="bg-white/10 rounded-full h-4 backdrop-blur-sm shadow-lg">
+                    <div className="bg-[#1a1a1a]/60 rounded-full h-4 backdrop-blur-sm shadow-lg border border-gray-800/50">
                         {/* Progress Bar */}
                         <div
-                            className="h-full rounded-full bg-gradient-to-r from-[#4169E1] to-[#5E85FF] transition-all duration-300 relative overflow-hidden"
-                            style={{ width: `${progress}%` }}
+                            className="progress-bar h-full rounded-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 relative overflow-hidden"
+                            style={{ '--progress': `${progress}%` } as React.CSSProperties}
                         >
                             {/* Animated Shine Effect */}
                             <div className="absolute inset-0 w-full animate-shine">
@@ -68,7 +73,7 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
                     </div>
 
                     {/* Progress Indicator */}
-                    <div className="absolute -right-4 -top-4 bg-[#4169E1] text-white text-sm px-2 py-1 rounded transform -translate-y-full">
+                    <div className="absolute -right-4 -top-4 bg-blue-900/30 text-blue-300 text-sm px-4 py-2 rounded-full border border-blue-800/50 backdrop-blur-sm">
                         {progress}%
                     </div>
                 </div>
@@ -77,7 +82,7 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
                 <div className="flex justify-center gap-4 mt-12">
                     <button
                         onClick={() => setProgress(p => Math.min(100, p + 10))}
-                        className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
+                        className="px-6 py-3 bg-[#1a1a1a]/60 hover:bg-[#2a2a2a]/60 text-white rounded-lg backdrop-blur-sm transition-all duration-300 flex items-center gap-2 border border-gray-800/50"
                     >
                         <span>Increase</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,7 +91,7 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
                     </button>
                     <button
                         onClick={() => setProgress(p => Math.max(0, p - 10))}
-                        className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
+                        className="px-6 py-3 bg-[#1a1a1a]/60 hover:bg-[#2a2a2a]/60 text-white rounded-lg backdrop-blur-sm transition-all duration-300 flex items-center gap-2 border border-gray-800/50"
                     >
                         <span>Decrease</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,13 +100,13 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
                     </button>
                     <button
                         onClick={() => setProgress(100)}
-                        className="px-6 py-3 bg-[#4169E1] hover:bg-[#5E85FF] text-white rounded-lg transition-all duration-300"
+                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-all duration-300"
                     >
                         Complete
                     </button>
                     <button
                         onClick={() => setProgress(0)}
-                        className="px-6 py-3 bg-red-500/20 hover:bg-red-500/30 text-red-500 rounded-lg backdrop-blur-sm transition-all duration-300"
+                        className="px-6 py-3 bg-[#1a1a1a]/60 text-red-400 rounded-lg backdrop-blur-sm transition-all duration-300 border border-red-900/50 hover:bg-red-900/20"
                     >
                         Reset
                     </button>
@@ -114,7 +119,7 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
                     {[...Array(3)].map((_, i) => (
                         <div
                             key={i}
-                            className="w-3 h-3 bg-[#4169E1] rounded-full animate-bounce"
+                            className="w-3 h-3 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full animate-bounce"
                             style={{ animationDelay: `${i * 0.1}s` }}
                         ></div>
                     ))}
